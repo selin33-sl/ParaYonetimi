@@ -22,15 +22,14 @@ const randomColor = () => {
 export const HomeScreen = () => {
   const dispatch = useDispatch();
   const [series, setSeries] = useState([]);
-  const [sliceColor, setSliceColor] = useState([]);
   const [selectedCase, setSelectedCase] = useState('Gelir');
   const [modalVisible, setModalVisible] = useState(false);
-
   const nullSeries = [100];
   const nullColor = ['gray'];
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [combine, setCombine] = useState([]);
+  const [sliceColor, setSliceColor] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,10 +95,6 @@ export const HomeScreen = () => {
   useEffect(() => {
     dispatch(setData({colors: sliceColor}));
   }, [sliceColor, selectedCase]);
-
-  useEffect(() => {
-    updateChartData('Tümü');
-  }, []);
 
   const showModal = () => {
     setModalVisible(true);
